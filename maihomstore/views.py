@@ -15,3 +15,6 @@ def all(request):
         'product' : product
     }
     return render(request,'index.html',{"context" : context})
+
+def category(request):
+    return render(request,'index.html')

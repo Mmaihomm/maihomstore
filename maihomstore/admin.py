@@ -5,6 +5,7 @@ from .models import Catigories,Product,ProductImage
 
 class CatigoriesAdmin(admin.ModelAdmin):
     search_fields = ('name',)
+    list_display = ['name','categoriesdetail','is_active']
     list_filter = ['is_active']
 
 
@@ -13,6 +14,7 @@ class ProductImageAdmin(admin.StackedInline):
 
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name',)
+    list_display = ['name','productdetail','catigorie','price','recommend','is_active']
     list_filter = ['is_active',]
     inlines = [ProductImageAdmin]
 

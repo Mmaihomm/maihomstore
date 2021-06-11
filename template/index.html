@@ -4,18 +4,16 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-<div class="container">
+<div class="container"  style="min-height: 87vh;">
     <h3 style="margin: 16px;">Category All</h3>
     <div class="row">
 
         {% for cat in context.category %}
-        <div class="col-lg-3" style="margin-bottom:4px;">
-            <div class="box-element product">
-                <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
-                        style="height: 200px;"></a>
-                <a style=""><strong>{{cat.name}} </strong></a>
+        <div class="col-lg-3" style="margin-bottom:4px;" > 
+            <div class="box-element product" style="height: 350px;" >
+                <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block" style="height: 200px;"></a>
+                <a href="{% url 'category' name=cat.name %}"><strong>{{cat.name}} </strong></a>
                 <p>{{cat.categoriesdetail}}</p>
-
             </div>
 
         </div>
@@ -34,13 +32,13 @@
                         style="height: 200px;"></a>
                 <a style=""><strong>{{cat.name}} </strong></a>
                 <p>{{cat.categoriesdetail}}</p>
-
+                <a class="btn btn-outline-success" href="">View</a>
             </div>
 
         </div>
         {% endfor %}  
 
-        
+
     </div>
 
 </div>
