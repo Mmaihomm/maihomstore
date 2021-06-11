@@ -16,5 +16,7 @@ def all(request):
     }
     return render(request,'index.html',{"context" : context})
 
-def category(request):
-    return render(request,'index.html')
+def Category(request,name):
+    # category = Catigories.objects.get()
+    product = Product.objects.filter(catigorie=name)
+    return render(request,'categorydetail.html',{"product" : product})
