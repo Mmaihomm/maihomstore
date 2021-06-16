@@ -1,0 +1,20 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$iUGPWUYyxlGhtWVZCnLlZL$Tq6VkIIfTjOLW8o5lQgZ8n3AbsXDyNPl2tolwfL05Vw=",
+            "last_login": "2021-06-14T06:17:19.931Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "asd@fff.co",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-06-14T06:17:07.038Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

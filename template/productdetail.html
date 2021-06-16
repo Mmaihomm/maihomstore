@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% block title %} Product Details - Maihom's Store {% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<div class="row">
+    <div class="class container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item " aria-current="page"><a href="/">Home</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a href="/category/1">Category</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a href="/">{{context.category}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{context.product}}</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-lg-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for p in context.photos %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %} active {% endif %}" ></li>
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    {% for p in context.photos %}
+                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                      <img class="d-block w-100" src="{{p.image.url}}"
+                        alt="First slide">
+                    </div>
+                    {% endfor %}
+                  <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>     
+        </div>
+        <div class="col-md">
+            <h2><strong>{{context.product.name}}</strong></h2>
+            <br>
+            <h3 style="color: red;"><strong>{{context.product.price}} บาท</strong></h3>
+            <h3><strong>Detail</strong></h3>
+            <h5>{{context.product.productdetail}}</h5>
+        </div>
+
+        </div>
+
+        <div class="row">
+            <h3 style="margin: 16px;">Recommend</h3>
+        </div>
+        <div class="row">
+            {% if context.product.recommend and context.product.is_active %}
+            {% for cat in context.productrecommend %}
+            <div class="col-lg-3" style="margin-bottom:4px;">
+                <div class="box-element product">
+                    <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
+                            style="height: 200px;"></a>
+                    <a><strong>{{cat.name}} </strong></a>
+                    <p>{{cat.productdetail}}</p>
+                    <a class="btn btn-outline-success"
+                        href="{% url 'productdetails' pk=cat.pk product=cat.id%}">View</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

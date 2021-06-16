@@ -4,19 +4,20 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-<div class="container"  style="min-height: 87vh;">
+<div class="container-fluid"  style="min-height: 87vh;">
     <h3 style="margin: 16px;">Category All</h3>
     <div class="row">
 
-        {% for cat in context.category %}
+        {% for cat in context.categoryid %}
+        {% if cat.is_active%}
         <div class="col-lg-3" style="margin-bottom:4px;" > 
             <div class="box-element product" style="height: 350px;" >
                 <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block" style="height: 200px;"></a>
-                <a href="{% url 'category' name=cat.name %}"><strong>{{cat.name}} </strong></a>
+                <a href="{% url 'category' pk=cat.id %}"><strong>{{cat.name}} </strong></a>
                 <p>{{cat.categoriesdetail}}</p>
             </div>
-
         </div>
+        {% endif %}
         {% endfor %}    
         
     </div>
@@ -24,19 +25,19 @@
 
     <h3 style="margin: 16px;" >Recommend</h3>
     <div class="row">
-
+        {% if context.product %}
         {% for cat in context.product %}
         <div class="col-lg-3" style="margin-bottom:4px;">
             <div class="box-element product">
                 <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
                         style="height: 200px;"></a>
-                <a style=""><strong>{{cat.name}} </strong></a>
+                <a ><strong>{{cat.name}} </strong></a>
                 <p>{{cat.categoriesdetail}}</p>
-                <a class="btn btn-outline-success" href="">View</a>
+                <a class="btn btn-outline-success" href="{% url 'productdetails' pk=cat.pk  product=cat.id%}">View</a>
             </div>
-
         </div>
-        {% endfor %}  
+        {% endfor %} 
+        {% endif %} 
 
 
     </div>
