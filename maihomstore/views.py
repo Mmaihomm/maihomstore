@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from .forms import ContactForm
 import requests
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -29,6 +30,7 @@ def all(request):
             'image' : x.image,
             'price' : x.price
         })
+    
     context = {
         'category': category,
         'product' : products,
@@ -59,6 +61,14 @@ def Category(request,pk):
     else:
        product = product.order_by('price')
 
+    paginator = Paginator(product, 4)
+    page = request.GET.get('page')
+    try:
+        product = paginator.page(page)
+    except PageNotAnInteger:
+        product = paginator.page(1)
+    except EmptyPage:
+        product = paginator.page(paginator.num_pages)
     
 
     context = {
@@ -77,7 +87,7 @@ def Productdetails(request,pk,product):
 
     post = get_object_or_404(Product,pk=pk)
     photos = ProductImage.objects.filter(product=product)
-
+ 
     productrecommends = []
     for x in productrecommend:
         productrecommends.append({
@@ -88,7 +98,7 @@ def Productdetails(request,pk,product):
             'image' : x.image,
             'price' : x.price,
         })
-    print(photos)
+    
     context = {
         'product' : product,
         'category' : category,
