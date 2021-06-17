@@ -79,6 +79,7 @@ def Category(request,pk):
         'pk':pk
     }
     return render(request,'categorydetail.html',{"context" : context})
+    
 
 def Productdetails(request,pk,product):
     category = Catigories.objects.get(pk=pk)
