@@ -11,19 +11,21 @@
     </nav>
     <input type="hidden" id="input-hidden">
     <div class="card" style="margin:24px;">
-        <h1 style="padding-top: 12px; padding-left: 8px;"><strong>contact</strong></h1>
+        <h1  style="padding-top: 12px; padding-left: 8px; margin-left:40%"><strong>contact</strong></h1>
         <hr>
         <form action="" method="post" id="createform">
             {% csrf_token %}
-            <div class="form-group" style="padding: 8px;">
-                <label for="name">firstname</label>
-                <input type="text" class="form-control" name="name" required>
+            <div class="form-group row" style="padding: 8px;">
+                <div class="col-6">
+                    <label for="firstname">firstname</label>
+                    <input type="text" class="form-control" name="firstname" required>
+                </div>
+                <div class="col-6">
+                    <label for="lastname">lastname</label>
+                    <input type="text" class="form-control" name="lastname" required>
+                </div>
             </div>
 
-            <div class="form-group" style="padding: 8px;">
-                <label for="lastname">lastname</label>
-                <input type="text" class="form-control" name="lastname" required>
-            </div>
 
             <div class="form-group" style="padding: 8px;">
                 <label for="email">Email</label>
@@ -35,8 +37,8 @@
                 <textarea type="text" class="form-control" name="message" required style="height: 15vh;"></textarea>
             </div>
 
-            <!-- <input type="submit" value="Submit" style="margin-left :50%; margin-bottom: 16px;"> -->
-            <button class="g-recaptcha" data-sitekey="6Ld1_DcbAAAAAMHO62-bfNpoAF-3SoQX1s7C8FgK" data-callback='onSubmit'data-action='submit' style="margin-left :50%; margin-bottom: 16px;">Submit</button>
+            <button class="g-recaptcha" data-sitekey="6Ld1_DcbAAAAAMHO62-bfNpoAF-3SoQX1s7C8FgK" data-callback='onSubmit'
+                data-action='submit' style="margin-left :50%; margin-bottom: 16px;">Submit</button>
         </form>
     </div>
 

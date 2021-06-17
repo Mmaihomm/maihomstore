@@ -9,7 +9,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item " aria-current="page"><a href="/">Home</a></li>
                 <li class="breadcrumb-item " aria-current="page"><a href="/category/1">Category</a></li>
-                <li class="breadcrumb-item " aria-current="page"><a href="/">{{context.category}}</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a href="{% url 'category' pk=context.category.id %}">{{context.category}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{context.product}}</li>
             </ol>
         </nav>
@@ -23,8 +23,8 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     {% for p in context.photos %}
-                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                      <img class="d-block w-100" src="{{p.image.url}}"
+                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} ">
+                      <img class="mx-auto d-block w-100" src="{{p.image.url}}" style="max-width: 60vh;"
                         alt="First slide">
                     </div>
                     {% endfor %}
@@ -53,10 +53,9 @@
             <h3 style="margin: 16px;">Recommend</h3>
         </div>
         <div class="row">
-            {% if context.product.recommend and context.product.is_active %}
             {% for cat in context.productrecommend %}
             <div class="col-lg-3" style="margin-bottom:4px;">
-                <div class="box-element product">
+                <div class="box-element product text-center">
                     <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
                             style="height: 200px;"></a>
                     <a><strong>{{cat.name}} </strong></a>
@@ -66,7 +65,6 @@
                 </div>
             </div>
             {% endfor %}
-            {% endif %}
             <nav aria-label="...">
                 <ul class="pagination justify-content-center" style="margin: 8px;"> 
                     {% if context.product.has_previous %}

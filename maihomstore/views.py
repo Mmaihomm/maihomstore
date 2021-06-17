@@ -75,7 +75,8 @@ def Category(request,pk):
         'product' : product,
         'category' : category, 
         'categoryid' : categoryid,
-        'searchcommit' :searchcommit
+        'searchcommit' :searchcommit,
+        'pk':pk
     }
     return render(request,'categorydetail.html',{"context" : context})
 
@@ -115,9 +116,9 @@ def contact(request):
         token = request.POST.get('g-recaptcha-response')
         secret = requests.post('https://www.google.com/recaptcha/api/siteverify', {
                                'secret': '6Ld1_DcbAAAAALbSH_1fA8gZ7fqjHvznCUANLLLJ', 'response': token})
-        form = ContactForm(request.POST)
         print(secret.json()['success'])
         if secret.json()['success']:
+            form = ContactForm(request.POST)
             if form.is_valid():
                 form.save()
     form = ContactForm()

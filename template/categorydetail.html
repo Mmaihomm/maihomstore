@@ -8,13 +8,11 @@
     <div class="card col-2">
         <div class="class-title" style="margin:16px;">Category</div>
         <div class="card-body">
-            
-            {% for cat in context.categoryid %}
-                {% if cat.is_active %}
-                    <div class="card" style="padding: 12px;"><a href="{% url 'category' pk=cat.id %}">{{cat.name}}</a></div>
-                {% endif %}
-            {% endfor %}
-            
+            <ul class="list-group">
+                {% for cat in context.categoryid %}
+                <a class="list-group-item {% if cat.id|add:'0' ==  context.category.id%}active{% endif %}" aria-current="true" href="{% url 'category' pk=cat.id %}">{{cat.name}}</a>
+                {% endfor %}
+              </ul>
         </div>
     </div>
     <div class="class col-10">
@@ -46,14 +44,15 @@
                 <div class="row">
                     {% for product in context.product %}
                     {% if product.is_active %}
-                    <div class="col-3" style="margin-bottom:4px;">
-                        <div class="box-element product.category" style="height: 350px;">
+                    <div class="col-3 " style="margin-bottom:4px;">
+                        <div class="box-element product.category text-center " style="height: 350px;">
                             <a href="{% url 'productdetails' pk=product.catigorie.id product=product.id%}"> <img
                                     src="{{product.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
                                     style="height: 150px;"></a>
-                            <a href="{% url 'productdetails' pk=product.catigorie.id product=product.id%}"><strong>{{product.name}}
-                                </strong></a>
+                            <a href="{% url 'productdetails' pk=product.catigorie.id product=product.id%}"><strong>{{product.name}}</strong></a>
+                            <div style="margin: 8px;">
                             <p>{{product.productdetail}}</p>
+                            </div>  
                             <h6 class="margin-right: 4px; "><strong>{{product.price}} บาท</strong></h6>
                             <a class="btn btn-outline-success"
                                 href="{% url 'productdetails' pk=product.catigorie.id product=product.id%}">View</a>
@@ -63,24 +62,27 @@
                     {% endfor %}
                 </div>
                 <nav aria-label="...">
-                    <ul class="pagination justify-content-center" style="margin: 8px;"> 
+                    <ul class="pagination justify-content-center" style="margin: 8px;">
                         {% if context.product.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page={{product.previous_page_number}}">Previous</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{product.previous_page_number}}">Previous</a></li>
                         {% endif %}
-                    
+
                         {% for i in context.product.paginator.page_range %}
-                        <li class="page-item {% if context.product.number == i %}active{% endif %}"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        <li class="page-item {% if context.product.number == i %}active{% endif %}"><a class="page-link"
+                                href="?page={{i}}">{{i}}</a></li>
                         {% endfor %}
-                    
+
                         {% if context.product.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{product.next_page_number}}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{product.next_page_number}}">Next</a>
+                        </li>
                         {% endif %}
                     </ul>
                 </nav>
             </div>
         </div>
-    
-        
+
+
     </div>
 </div>
 

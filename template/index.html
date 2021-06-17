@@ -11,7 +11,7 @@
         {% for cat in context.categoryid %}
         {% if cat.is_active%}
         <div class="col-lg-3" style="margin-bottom:4px;">
-            <div class="box-element product" style="height: 350px;">
+            <div class="box-element product text-center" style="height: 350px;">
                 <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
                         style="height: 200px;"></a>
                 <a href="{% url 'category' pk=cat.id %}"><strong>{{cat.name}} </strong></a>
@@ -29,7 +29,7 @@
         {% if context.product %}
         {% for cat in context.product %}
         <div class="col-lg-3" style="margin-bottom:4px;">
-            <div class="box-element product">
+            <div class="box-element product text-center">
                 <a> <img src="{{cat.image.url}}" alt="" class="img-thumbnail mx-auto d-block"
                         style="height: 200px;"></a>
                 <a><strong>{{cat.name}} </strong></a>
