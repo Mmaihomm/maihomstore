@@ -2,15 +2,15 @@
 {% block title %}Category - Maihom's Store {% endblock %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}">
 
 <div class="row">
     <div class="card col-2">
-        <div class="class-title" style="margin:16px;">Category</div>
+        <div class="class-title" style="margin:24px;"><h1>Category</h1></div>
         <div class="card-body">
             <ul class="list-group">
                 {% for cat in context.categoryid %}
-                <a class="list-group-item {% if cat.id|add:'0' ==  context.category.id%}active{% endif %}" aria-current="true" href="{% url 'category' pk=cat.id %}">{{cat.name}}</a>
+                <a class="list-group-item list-group-item-action list-group-item-danger {% if cat.id|add:'0' ==  context.category.id%}active{% endif %}" aria-current="true" href="{% url 'category' pk=cat.id %}">{{cat.name}}</a>
                 {% endfor %}
               </ul>
         </div>
@@ -54,7 +54,7 @@
                             <p>{{product.productdetail}}</p>
                             </div>  
                             <h6 class="margin-right: 4px; "><strong>{{product.price}} บาท</strong></h6>
-                            <a class="btn btn-outline-success"
+                            <a class="btn btn-outline-warning"
                                 href="{% url 'productdetails' pk=product.catigorie.id product=product.id%}">View</a>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6{
 
 .box-element{
 	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
-	background-color: #fff;
+	background-color: rgb(206, 160, 160);
 	border-radius: 15px;
 	padding: 10px;
     margin: 8px;
@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .product{
-	border-radius: 15px;
+	border-radius: 15p;
     margin: 8px;
 }
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}">
 
 <div class="container-fluid" style="min-height: 87vh;">
     <h3 style="margin: 16px;">Category All</h3>
@@ -34,7 +34,7 @@
                         style="height: 200px;"></a>
                 <a><strong>{{cat.name}} </strong></a>
                 <p>{{cat.categoriesdetail}}</p>
-                <a class="btn btn-outline-success" href="{% url 'productdetails' pk=cat.pk  product=cat.id%}">View</a>
+                <a class="btn btn-outline-warning" href="{% url 'productdetails' pk=cat.pk  product=cat.id%}">View</a>
             </div>
         </div>
         {% endfor %}
