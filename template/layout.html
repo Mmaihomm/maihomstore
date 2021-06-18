@@ -1,66 +1,130 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>{% block title %}Maihom's Store {% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <title>{% block title %}Maihom's Store {% endblock %}</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg " style="background-color: #d72c3f; ">
-        <a class="navbar-brand" style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 32px;" href="/">Maihom's Store</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 24px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Category
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for cat in context.categoryid %}
-                {% if cat.is_active %}
-                <a class="dropdown-item" href="{% url 'category' pk=cat.id %}">{{cat}}</a>
-                {% endif %}
-                {% endfor %}
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 24px;" href="/contact" >Contact</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search' action="{{ request.path }}" value='{{searchcommit}}'>
-            
-          </form>
-        </div>
-      </nav>
-      
+  <nav class="navbar navbar-expand-lg " style="background-color: #d72c3f; ">
+    <a class="navbar-brand" style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 32px;"
+      href="/">Maihom's Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="container-fluid">
-        {% block content %}
-        {%  endblock %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+            style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 24px;" href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for cat in context.categoryid %}
+            {% if cat.is_active %}
+            <a class="dropdown-item" href="{% url 'category' pk=cat.id %}">{{cat}}</a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " style="color: white; font-family: 'Times New Roman', Times, serif; font-size: 24px;"
+            href="/contact">Contact</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'
+          action="{{ request.path }}" value='{{searchcommit}}'>
+      </form>
+    </div>
+    {%if user.is_authenticated %}
+    <form class="d-flex justify-content-end">
+      <a class="btn btn-link text-light" style="margin-right: 8px;" type="button" href="/cart" id="loginButton"><i
+          class="fas fa-shopping-cart"></i></a>
+      <a class="btn btn-success text-light" style="margin-right: 8px;" type="button" data-toggle="modal"
+        data-target="#logout" id="loginButton">{{user.username}}</a>
+      <a class="btn btn-outline-dander" type="button aria-current=" href="/logout">Log Out</a>
+    </form>
+    {% else %}
+    <form class="d-flex justify-content-end ">
+      <a class="btn btn-warning " style="margin-right: 8px;" type="button aria-current=" href="/register">Register</a>
+      <a class="btn btn-outline-light text-light" type="button" data-toggle="modal" data-target="#staticBackdrop"
+        id="loginButton">Log In</a>
+    </form>
+    {% endif %}
+    </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <footer>
+    <div class="text-center p-3"
+      style="background-color: rgba(250, 170, 170, 0.719);  bottom: 0px; width: -webkit-fill-available;">
+      © Copyright 2021 Intelligent Bytes Co., Ltd. All Rights Reserves
+    </div>
+  </footer>
+
+
+  <!-- Modal Login -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title justify-content-center" id="staticBackdropLabel">Log in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="POST" action="/login">
+          {% csrf_token %}
+          <div class="modal-body">
+
+            Username <input type="text" required name=username> <br><br>
+            Password <input type="password" required name=password><br><br><br>
+
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+              {% for message in messages %}
+              {{message}}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="modal-footer">
+
+              <button type="submit" class="btn btn-outline-success" id="loginButton">Log In</button>
+              <a href="/register" type="button" value="signup" class="btn btn-outline-warning" id="signupButton">Sign
+                Up</a>
+        </form>
       </div>
-
-      <footer>
-        <div class="text-center p-3" style="background-color: rgba(250, 170, 170, 0.719);  bottom: 0px; width: -webkit-fill-available;">
-          © Copyright 2021 Intelligent Bytes Co., Ltd. All Rights Reserves
-        </div>
-      </footer>
-
-
-        
+    </div>
+  </div>
 
 
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

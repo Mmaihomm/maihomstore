@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Catigories,Product,ProductImage
 from django.db.models import Q
 from django.core.mail import send_mail
@@ -134,5 +134,56 @@ def contact(request):
         }
     return render(request,'contact.html',{'context' : context})
 
+def Login(request):
+    username=request.POST.get('username')
+    password=request.POST.get('password')
+    print(username)
+    
+    # login
+    user = authenticate(username=username,password=password)
+    print(user)
+    if user is not None :
+        login(request,user)
+        return redirect('/')
+    else:
+        messages.info(request,'Username or password is incorrect')
+        return redirect('/')
 
+def Logout(request):
+    logout(request)
+    return redirect('/')
 
+def register(request):
+    name=request.POST.get('name')
+    lastname=request.POST.get('lastname')
+    username=request.POST.get('username')
+    password=request.POST.get('password')
+    repassword=request.POST.get('repassword')
+    email=request.POST.get('email')
+
+    if request.method == 'POST':
+        if password==repassword:
+            if User.objects.filter(username=username).exists():
+                messages.info(request, 'cannot use username')
+                print(name,lastname,username,password,repassword,email)
+                return redirect('/register')
+            elif User.objects.filter(email=email).exists():
+                messages.info(request, 'cannot use email')
+                print(name,lastname,username,password,repassword,email)
+                return redirect('/register')
+            else:
+                user = User(
+                first_name=name,
+                last_name=lastname,
+                username=username,
+                email=email
+                )
+                user.set_password(password)
+
+                user.save()
+                return redirect('/')
+        else:
+            messages.info(request,'cannot use post')
+            return redirect('/register')
+
+    return render(request,'register.html')
