@@ -17,14 +17,14 @@
     </div>
     <div class="class col-10">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item " aria-current="page"><a href="/">Home</a></li>
-                <li class="breadcrumb-item " aria-current="page"><a href="/">Category</a></li>
+            <ol class="breadcrumb" style="background-color:#ffcccc;">
+                <li class="breadcrumb-item " aria-current="page"><a style="color: #4d0000;"  href="/">Home</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a style="color: #4d0000;" href="/">Category</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{context.category}}</li>
             </ol>
         </nav>
         <div class="row">
-            <div style="margin-left: 16px;">ค้นหา : {% if context.searchcommit %} {{context.searchcommit}} {% endif%}
+            <div class="card justify-content-center" style="margin-left: 16px; padding: 8px;">ค้นหา : {% if context.searchcommit %} {{context.searchcommit}} {% endif%}
             </div>
             <div class="dropdown" style="margin-left: 75%;">
                 <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"

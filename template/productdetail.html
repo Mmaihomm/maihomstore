@@ -6,10 +6,10 @@
 <div class="row">
     <div class="class container-fluid">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item " aria-current="page"><a href="/">Home</a></li>
-                <li class="breadcrumb-item " aria-current="page"><a href="/category/1">Category</a></li>
-                <li class="breadcrumb-item " aria-current="page"><a href="{% url 'category' pk=context.category.id %}">{{context.category}}</a></li>
+            <ol class="breadcrumb" style="background-color:#ffcccc;">
+                <li class="breadcrumb-item " aria-current="page"><a style="color: #4d0000;" href="/">Home</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a style="color: #4d0000;" href="/category/1">Category</a></li>
+                <li class="breadcrumb-item " aria-current="page"><a style="color: #4d0000;" href="{% url 'category' pk=context.category.id %}">{{context.category}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{context.product}}</li>
             </ol>
         </nav>

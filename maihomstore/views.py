@@ -6,6 +6,7 @@ from .forms import ContactForm
 import requests
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 
@@ -62,7 +63,7 @@ def Category(request,pk):
     else:
        product = product.order_by('price')
 
-    paginator = Paginator(product, 4)
+    paginator = Paginator(product, 8)
     page = request.GET.get('page')
     try:
         product = paginator.page(page)
