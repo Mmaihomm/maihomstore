@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from .forms import ContactForm
 import requests
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 # Create your views here.
 
@@ -79,7 +80,7 @@ def Category(request,pk):
         'pk':pk
     }
     return render(request,'categorydetail.html',{"context" : context})
-    
+
 
 def Productdetails(request,pk,product):
     category = Catigories.objects.get(pk=pk)
@@ -122,6 +123,9 @@ def contact(request):
             form = ContactForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.add_message(request,messages.SUCCESS,'Message Send','success')
+            else:
+                messages.add_message(request,messages.ERROR,'Please fill the form','danger')
     form = ContactForm()
     context = {
         'form':form,

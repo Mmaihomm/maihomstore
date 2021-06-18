@@ -10,8 +10,16 @@
         </ol>
     </nav>
     <input type="hidden" id="input-hidden">
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+        {{message}}
+        </div>
+    {% endfor %}
+    {% endif %}
+
     <div class="card" style="margin:24px;">
-        <h1  style="padding-top: 12px; padding-left: 8px; margin-left:40%"><strong>contact</strong></h1>
+        <h1 style="padding-top: 12px; padding-left: 8px; margin-left:40%"><strong>contact</strong></h1>
         <hr>
         <form action="" method="post" id="createform">
             {% csrf_token %}

@@ -20,11 +20,12 @@ h1,h2,h3,h4,h5,h6{
 	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
     -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
     box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+	border-radius: 20px;
 }
 
 .product{
 	border-radius: 15p;
-    margin: 8px;
+    margin: 16px;
 }
 
 .bg-dark{
