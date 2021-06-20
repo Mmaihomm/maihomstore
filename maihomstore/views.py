@@ -22,6 +22,15 @@ def all(request):
     if searchcommit:
         product=product.filter(Q(name__icontains=searchcommit))
 
+    paginator = Paginator(product, 4)
+    page = request.GET.get('page')
+    try:
+        product = paginator.page(page)
+    except PageNotAnInteger:
+        product = paginator.page(1)
+    except EmptyPage:
+        product = paginator.page(paginator.num_pages)
+
     products=[]
     for x in product:
         products.append({
@@ -37,7 +46,8 @@ def all(request):
         'category': category,
         'product' : products,
         'categoryid' : categoryid,
-        'searchcommit' : searchcommit
+        'searchcommit' : searchcommit,
+        'recommend' : product
     }
     return render(request,'index.html',{"context" : context})
 
@@ -91,6 +101,16 @@ def Productdetails(request,pk,product):
 
     post = get_object_or_404(Product,pk=pk)
     photos = ProductImage.objects.filter(product=product)
+
+    paginator = Paginator(productrecommend, 4)
+    page = request.GET.get('page')
+    try:
+        productrecommend = paginator.page(page)
+    except PageNotAnInteger:
+        productrecommend = paginator.page(1)
+    except EmptyPage:
+        productrecommend = paginator.page(paginator.num_pages)
+
  
     productrecommends = []
     for x in productrecommend:
@@ -108,7 +128,8 @@ def Productdetails(request,pk,product):
         'category' : category,
         'categoryid' : categoryid,
         'productrecommend' : productrecommends,
-        'photos' : photos
+        'photos' : photos,
+        'recommend' : productrecommend
     }
     return render(request,'productdetail.html',{"context" : context})
 

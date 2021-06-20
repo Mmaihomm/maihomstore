@@ -26,7 +26,6 @@
 
     </div>
 
-
     <h3 style="margin: 16px;">Recommend</h3>
     <div class="row">
         {% if context.product %}
@@ -43,6 +42,24 @@
         {% endfor %}
         {% endif %}
     </div>
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center" style="margin: 8px; color: tomato;">
+            {% if context.recommend.has_previous %}
+            <li class="page-item"><a class="page-link"
+                    href="?page={{product.previous_page_number}}">Previous</a></li>
+            {% endif %}
+
+            {% for i in context.recommend.paginator.page_range %}
+            <li class="page-item {% if context.product.number == i %}active{% endif %}"><a class="page-link"
+                    href="?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+
+            {% if context.recommend.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{product.next_page_number}}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
 
     
 
