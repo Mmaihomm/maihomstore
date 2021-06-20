@@ -1,1 +1,306 @@
-[{"model": "maihomstore.catigories", "pk": 1, "fields": {"name": "All Product", "image": "uploads/electric_9P7WAi8.jpg", "categoriesdetail": "ของทุกสิ่งอย่างในโลกใบนี้", "is_active": true}}, {"model": "maihomstore.catigories", "pk": 2, "fields": {"name": "Sport", "image": "uploads/football_NbpgeBV.jpg", "categoriesdetail": "อุปกรณ์กีฬาต่างๆ", "is_active": true}}, {"model": "maihomstore.catigories", "pk": 3, "fields": {"name": "Kitchen", "image": "uploads/kitchen_ckKWPi6.png", "categoriesdetail": "อุปกรณ์เครื่องครัวจ้า", "is_active": true}}, {"model": "maihomstore.catigories", "pk": 4, "fields": {"name": "garden", "image": "uploads/garden_0wtmqMC.jpg", "categoriesdetail": "อุปกรณ์ทำสวนดีๆแหละ", "is_active": true}}, {"model": "maihomstore.catigories", "pk": 5, "fields": {"name": "Office", "image": "uploads/office-equipment_RscQ3MQ.jpg", "categoriesdetail": "เครื่องใช้ในสำนักงาน", "is_active": true}}, {"model": "maihomstore.product", "pk": 1, "fields": {"name": "Football", "image": "uploads/football_icr11TJ.jpg", "productdetail": "ลูกฟุตบอลหนังแท้ เตะทีปลิวทั้งรองเท้า", "catigorie": 2, "price": "500.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.product", "pk": 2, "fields": {"name": "Basketball", "image": "uploads/basketball_JibEuL8.jpeg", "productdetail": "ลูกบาสดีๆ เด้งใส่หน้า", "catigorie": 2, "price": "300.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.product", "pk": 3, "fields": {"name": "Gloves", "image": "uploads/gloves.jpg", "productdetail": "ถุงมือหนามากจนหนามทิ่มได้", "catigorie": 4, "price": "60.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.product", "pk": 4, "fields": {"name": "Hand Towel", "image": "uploads/hardtowel.jpg", "productdetail": "พลั่วสวยๆจ้าาา", "catigorie": 4, "price": "100.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.product", "pk": 5, "fields": {"name": "Microwave", "image": "uploads/microwave.jpeg", "productdetail": "ไมโครเวฟ ร้อนสุด ร้อนมากแม่ ร้อนไม่ไหวแล้ว", "catigorie": 3, "price": "2500.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.product", "pk": 6, "fields": {"name": "Calculator", "image": "uploads/calculator.jpeg", "productdetail": "เครื่องคิดเลข คิดแล้วคิดอีก คิดเองดีกว่า", "catigorie": 5, "price": "200.00", "recommend": true, "is_active": true}}, {"model": "maihomstore.productimage", "pk": 1, "fields": {"product": 5, "image": "uploads/microwave2.jpeg"}}, {"model": "maihomstore.productimage", "pk": 2, "fields": {"product": 5, "image": "uploads/microwave_VQggMn6.jpeg"}}, {"model": "maihomstore.productimage", "pk": 3, "fields": {"product": 6, "image": "uploads/calculator_oMONerW.jpeg"}}, {"model": "maihomstore.productimage", "pk": 5, "fields": {"product": 6, "image": "uploads/calculator3.jpeg"}}, {"model": "maihomstore.productimage", "pk": 6, "fields": {"product": 1, "image": "uploads/football_6h3JMUu.jpg"}}, {"model": "maihomstore.productimage", "pk": 7, "fields": {"product": 2, "image": "uploads/basketball_56hnb8p.jpeg"}}, {"model": "maihomstore.productimage", "pk": 8, "fields": {"product": 3, "image": "uploads/gloves_fyrR6Pq.jpg"}}, {"model": "maihomstore.productimage", "pk": 9, "fields": {"product": 4, "image": "uploads/hardtowel_SIUJbXn.jpg"}}, {"model": "maihomstore.productimage", "pk": 10, "fields": {"product": 1, "image": "uploads/football2.jpg"}}, {"model": "maihomstore.productimage", "pk": 11, "fields": {"product": 1, "image": "uploads/football3.jpg"}}, {"model": "maihomstore.productimage", "pk": 12, "fields": {"product": 1, "image": "uploads/football4.jpg"}}, {"model": "maihomstore.productimage", "pk": 13, "fields": {"product": 1, "image": "uploads/football_dwMSaXq.jpg"}}, {"model": "maihomstore.productimage", "pk": 14, "fields": {"product": 5, "image": "uploads/microwave_NW8QTZ6.jpeg"}}, {"model": "maihomstore.productimage", "pk": 15, "fields": {"product": 4, "image": "uploads/hand2.jpeg"}}, {"model": "maihomstore.productimage", "pk": 16, "fields": {"product": 4, "image": "uploads/hand3.jpg"}}, {"model": "maihomstore.productimage", "pk": 17, "fields": {"product": 3, "image": "uploads/glove2.jpeg"}}, {"model": "maihomstore.productimage", "pk": 18, "fields": {"product": 3, "image": "uploads/glove3.jpeg"}}, {"model": "maihomstore.productimage", "pk": 19, "fields": {"product": 3, "image": "uploads/glove4.jpeg"}}, {"model": "maihomstore.productimage", "pk": 20, "fields": {"product": 2, "image": "uploads/basketball2.jpeg"}}, {"model": "maihomstore.productimage", "pk": 21, "fields": {"product": 2, "image": "uploads/basketball3.jpg"}}, {"model": "maihomstore.productimage", "pk": 22, "fields": {"product": 2, "image": "uploads/basketball4.jpg"}}, {"model": "maihomstore.productimage", "pk": 23, "fields": {"product": 2, "image": "uploads/basketball5.jpeg"}}]
+[
+    {
+        "model": "maihomstore.catigories",
+        "pk": 1,
+        "fields": {
+            "name": "All Product",
+            "image": "uploads/electric_9P7WAi8.jpg",
+            "categoriesdetail": "ของทุกสิ่งอย่างในโลกใบนี้",
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.catigories",
+        "pk": 2,
+        "fields": {
+            "name": "Sport",
+            "image": "uploads/football_NbpgeBV.jpg",
+            "categoriesdetail": "อุปกรณ์กีฬาต่างๆ",
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.catigories",
+        "pk": 3,
+        "fields": {
+            "name": "Kitchen",
+            "image": "uploads/kitchen_ckKWPi6.png",
+            "categoriesdetail": "อุปกรณ์เครื่องครัวจ้า",
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.catigories",
+        "pk": 4,
+        "fields": {
+            "name": "garden",
+            "image": "uploads/garden_0wtmqMC.jpg",
+            "categoriesdetail": "อุปกรณ์ทำสวนดีๆแหละ",
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.catigories",
+        "pk": 5,
+        "fields": {
+            "name": "Office",
+            "image": "uploads/office-equipment_RscQ3MQ.jpg",
+            "categoriesdetail": "เครื่องใช้ในสำนักงาน",
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 1,
+        "fields": {
+            "name": "Football",
+            "image": "uploads/football_icr11TJ.jpg",
+            "productdetail": "ลูกฟุตบอลหนังแท้ เตะทีปลิวทั้งรองเท้า",
+            "catigorie": 2,
+            "price": "500.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 2,
+        "fields": {
+            "name": "Basketball",
+            "image": "uploads/basketball_JibEuL8.jpeg",
+            "productdetail": "ลูกบาสดีๆ เด้งใส่หน้า",
+            "catigorie": 2,
+            "price": "300.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 3,
+        "fields": {
+            "name": "Gloves",
+            "image": "uploads/gloves.jpg",
+            "productdetail": "ถุงมือหนามากจนหนามทิ่มได้",
+            "catigorie": 4,
+            "price": "60.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 4,
+        "fields": {
+            "name": "Hand Towel",
+            "image": "uploads/hardtowel.jpg",
+            "productdetail": "พลั่วสวยๆจ้าาา",
+            "catigorie": 4,
+            "price": "100.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 5,
+        "fields": {
+            "name": "Microwave",
+            "image": "uploads/microwave.jpeg",
+            "productdetail": "ไมโครเวฟ ร้อนสุด ร้อนมากแม่ ร้อนไม่ไหวแล้ว",
+            "catigorie": 3,
+            "price": "2500.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.product",
+        "pk": 6,
+        "fields": {
+            "name": "Calculator",
+            "image": "uploads/calculator.jpeg",
+            "productdetail": "เครื่องคิดเลข คิดแล้วคิดอีก คิดเองดีกว่า",
+            "catigorie": 5,
+            "price": "200.00",
+            "recommend": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 1,
+        "fields": {
+            "product": 5,
+            "image": "uploads/microwave2.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 2,
+        "fields": {
+            "product": 5,
+            "image": "uploads/microwave_VQggMn6.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 3,
+        "fields": {
+            "product": 6,
+            "image": "uploads/calculator_oMONerW.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 5,
+        "fields": {
+            "product": 6,
+            "image": "uploads/calculator3.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 6,
+        "fields": {
+            "product": 1,
+            "image": "uploads/football_6h3JMUu.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 7,
+        "fields": {
+            "product": 2,
+            "image": "uploads/basketball_56hnb8p.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 8,
+        "fields": {
+            "product": 3,
+            "image": "uploads/gloves_fyrR6Pq.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 9,
+        "fields": {
+            "product": 4,
+            "image": "uploads/hardtowel_SIUJbXn.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 10,
+        "fields": {
+            "product": 1,
+            "image": "uploads/football2.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 11,
+        "fields": {
+            "product": 1,
+            "image": "uploads/football3.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 12,
+        "fields": {
+            "product": 1,
+            "image": "uploads/football4.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 13,
+        "fields": {
+            "product": 1,
+            "image": "uploads/football_dwMSaXq.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 14,
+        "fields": {
+            "product": 5,
+            "image": "uploads/microwave_NW8QTZ6.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 15,
+        "fields": {
+            "product": 4,
+            "image": "uploads/hand2.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 16,
+        "fields": {
+            "product": 4,
+            "image": "uploads/hand3.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 17,
+        "fields": {
+            "product": 3,
+            "image": "uploads/glove2.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 18,
+        "fields": {
+            "product": 3,
+            "image": "uploads/glove3.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 19,
+        "fields": {
+            "product": 3,
+            "image": "uploads/glove4.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 20,
+        "fields": {
+            "product": 2,
+            "image": "uploads/basketball2.jpeg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 21,
+        "fields": {
+            "product": 2,
+            "image": "uploads/basketball3.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 22,
+        "fields": {
+            "product": 2,
+            "image": "uploads/basketball4.jpg"
+        }
+    },
+    {
+        "model": "maihomstore.productimage",
+        "pk": 23,
+        "fields": {
+            "product": 2,
+            "image": "uploads/basketball5.jpeg"
+        }
+    }
+]
